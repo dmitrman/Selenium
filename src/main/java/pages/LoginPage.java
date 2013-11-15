@@ -6,30 +6,23 @@ import org.openqa.selenium.WebDriver;
 
 public class LoginPage {
 
+	private String url = "https://github.com";
 	private final WebDriver driver;
 	
 	public LoginPage(WebDriver driver) {
 	   super();
 	   this.driver = driver;	  
-       driver.get("http://www.google.com");
-		
+       driver.get(url);		
 	} 
 	
 	public HomePage loginWith(String username, String password) {
-	   executeLogin(username, password);
-	   return new HomePage(driver);
+		driver.findElement(By.cssSelector("a.button:nth-child(2)")).click();		
+		driver.findElement(By.cssSelector("#login_field")).sendKeys(username);
+		driver.findElement(By.id("password")).sendKeys(password);		
+		driver.findElement(By.name("commit")).click(); 		
+	    return new HomePage(driver);
 	}
-	
-	private void executeLogin(String username, String password) {
-		driver.findElement(By.id("gb_70")).click();
-		driver.findElement(By.id("Email")).click();
-	    driver.findElement(By.id("Email")).sendKeys(username);
-	    driver.findElement(By.id("Passwd")).click();
-		driver.findElement(By.id("Passwd")).sendKeys(password);
-		driver.findElement(By.id("signIn")).submit();
 		
-	}
-	
 	public String getTitle() throws Exception {
 		return driver.getTitle();
 	}
