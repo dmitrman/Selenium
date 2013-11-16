@@ -16,11 +16,13 @@ public class LoginPage {
 	} 
 	
 	public HomePage loginWith(String username, String password) {
-		driver.findElement(By.cssSelector("a.button:nth-child(2)")).click();		
+		driver.findElement(By.cssSelector("a.button:nth-child(2)")).click();	
+		
 		driver.findElement(By.cssSelector("#login_field")).sendKeys(username);
 		driver.findElement(By.id("password")).sendKeys(password);		
 		driver.findElement(By.name("commit")).click(); 		
-	    return new HomePage(driver);
+	    
+		return new HomePage(driver);
 	}
 		
 	public String getTitle() throws Exception {

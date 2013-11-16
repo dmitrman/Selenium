@@ -23,4 +23,14 @@ public class HomePage {
 	public String getPageText() {
 		return (driver.findElement(By.tagName("html")).getText());
 	}
+	
+	public boolean containsSignOut() {
+		return((driver.findElements(By.id("logout"))).size()!=0);
+	}
+	
+	public NewRepositoryPage newRepository() {
+		driver.findElement(By.cssSelector("a.minibutton")).click();
+		
+		return new NewRepositoryPage(driver);
+	}
 }
