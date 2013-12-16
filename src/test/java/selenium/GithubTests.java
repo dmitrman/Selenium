@@ -54,7 +54,7 @@ public class GithubTests {
 	 */
 	@Ignore
 	public void testLoginWithValidCredentials() throws Exception {
-        HomePage hPage = new LoginPage(driver).loginWith("dmitrii-goncharenko@mail.ru","rightpassw");	
+        HomePage hPage = new LoginPage(driver).loginWith("dmitriy@mail.com","rightpassw");	
 		
 		assertEquals("GitHub", hPage.getTitle());	
 		assertTrue(hPage.containsSignOut());
@@ -66,7 +66,7 @@ public class GithubTests {
 	 */
 	@Test
 	public void testCreateNewRepository() {
-		HomePage hPage = new LoginPage(driver).loginWith("dmitrii-goncharenko@mail.ru","rightpassw");	
+		HomePage hPage = new LoginPage(driver).loginWith("dmitriy@mail.com","rightpassw");	
 		NewRepositoryPage repPage = hPage.newRepository();
 		RepositoryHomePage repHome = repPage.addRepository("MyRepository");
 		assertTrue(repHome.containsRepositoryName("MyRepository"));
