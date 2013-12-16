@@ -38,23 +38,23 @@ public class GithubTests {
 	}
 	
 	/*
-	 * Тестирование авторизации с неверным логином и паролем
+	 * пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	 */
 	@Ignore
 	public void testLogginWithWrongCredentials() throws Exception {
 		HomePage hPage = new LoginPage(driver).loginWith("dmitriy@mail.com","wrongpasswd");	
 		
-		assertEquals("Sign in · GitHub", hPage.getTitle());			
+		assertEquals("Sign in пїЅ GitHub", hPage.getTitle());			
 	    StringAssert.assertContains("Incorrect username or password.", hPage.getPageText());
 		
 	}
 	
 	/*
-	 * Тестирование авторизации с корректным логином и паролем
+	 * пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	 */
 	@Ignore
 	public void testLoginWithValidCredentials() throws Exception {
-        HomePage hPage = new LoginPage(driver).loginWith("dmitrii-goncharenko@mail.ru","dima24t92m19");	
+        HomePage hPage = new LoginPage(driver).loginWith("dmitrii-goncharenko@mail.ru","rightpassw");	
 		
 		assertEquals("GitHub", hPage.getTitle());	
 		assertTrue(hPage.containsSignOut());
@@ -62,11 +62,11 @@ public class GithubTests {
 	}
 	
 	/*
-	 * Тестирование создания нового репозитория
+	 * пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	 */
 	@Test
 	public void testCreateNewRepository() {
-		HomePage hPage = new LoginPage(driver).loginWith("dmitrii-goncharenko@mail.ru","dima24t92m19");	
+		HomePage hPage = new LoginPage(driver).loginWith("dmitrii-goncharenko@mail.ru","rightpassw");	
 		NewRepositoryPage repPage = hPage.newRepository();
 		RepositoryHomePage repHome = repPage.addRepository("MyRepository");
 		assertTrue(repHome.containsRepositoryName("MyRepository"));
